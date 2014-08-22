@@ -1,6 +1,6 @@
 ## Download page sources
 
-Thery often you need to develop page localy. And need to load page HTML code, and when manually upload dependencies from server and put into path relative index page according server path structure. It's easy, but if page has too many resources and you can't manually upload it. This script hepls to solve this problems.
+Very often you need to develop page localy. And need to load page HTML code, and when manually upload dependencies from server and put into path relative index page according server path structure. It's easy, but if page has too many resources and you can't manually upload it. This script helps to solve this problems.
 
 ### Before using install NodeJS and Yeoman and dependencies.
 
