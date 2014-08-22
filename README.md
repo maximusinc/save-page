@@ -4,38 +4,51 @@ Thery often you need to develop page localy. And need to load page HTML code, an
 
 ### Before using install NodeJS and Yeoman and dependencies.
 
-$$ npm install -g yo
+```sh
+npm install -g yo
+```
+
 
 ### How to use:
 
--clone this repo
++ clone this repo
 
-$$ git clone git@github.com:maximusinc/save-page.git
+```sh
+git clone git@github.com:maximusinc/save-page.git
+```
 
--save all page resources as `.HAR` file. It's very easy make with Google Dev Tools panel.
--put `.HAR` file into `save-page` folder.
-- run in command line
 
-$$ cd save-page
-$$ node save.js
++ save all page resources as `.HAR` file. It's very easy make with Google Dev Tools panel.
++ put `.HAR` file into `save-page` folder.
++ run in command line
 
-- page and dependencies will uploads to content folder
+```sh
+cd save-page
+node save.js
+```
+
++ page and dependencies will uploads to content folder
 
 ####next steps are optional
 
 If you want to run local server, you can to make it easy with yeoman generators. Install yeoman simple webapp generator.
+```sh
+npm install -g generator-simple
+```
 
-$$ npm install -g generator-simple
++ go to `content` folder
 
-- go to `content` folder
++ print in console
 
-- print in console
-
-$$ yo simple
+```sh
+yo simple
+```
 ~Note: Do not override uploaded files~
 
-- start local server print
++ start local server print
 
-$$ grunt
+```sh
+grunt
+```
 
 All done. You are have local page
