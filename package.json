@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {},
   "devDependencies": {
-    "http-get": "~0.5.3",
+  	"request": "2.40",
     "q": "~1.0.0"
   }
 }

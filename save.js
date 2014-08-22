@@ -1,9 +1,10 @@
 (function (config) {
 	var Q = require('q'),
 		fs = require('fs'),
-		http = require('http-get'),
+		request = require('request'),
 		exec = require('child_process').exec,
 		hostRegExp = new RegExp('^(([^:/?#]+):)?(//([^/?#]*))?([^?#]*)'),
+		contentTypeImageRegExp = new RegExp('^image'),
 		saveToFolder = 'page',
 		mkdirPrefix = 'mkdir ',
 		dependencies,
@@ -145,29 +146,11 @@
 		uploadAndSave = function (depUrl) {
 			var needLoadTo = Object.keys(depUrl)[0],
 				httpResource = depUrl[needLoadTo],
-				saveTo = makeFileSavePath(needLoadTo);
+				saveTo = makeFileSavePath(needLoadTo),
+				reqq = request(httpResource).pipe( fs.createWriteStream(saveTo.resultPath) );
 			console.log('try to upload from', httpResource, 'and save to ', saveTo );
 			return Q.Promise(function (resolve, reject) {
-				http.get(httpResource, function (error, res) {
-				    if (!error && res.code === 200 && res.buffer.length) {
-				    	var wstream = fs.createWriteStream(saveTo.resultPath);
-								wstream.write(res.buffer);
-								wstream.end();
-				    // 	exec(mkdirPrefix + saveTo.path, function (err) {
-				    // 		if (!err) {
-				    // 			var wstream = fs.createWriteStream(saveTo.resultPath);
-								// wstream.write(res.buffer);
-								// wstream.end();
-								// resolve('File downloaded at: ' + saveTo);
-				    // 		} else {
-				    // 			console.log(err);
-				    // 			reject(err);
-				    // 		}
-				    // 	});
-				    } else {
-				    	reject(error);
-				    }
-				});
+				resolve();
 			});
 		},
 		uploadAll = function (depsUrls) {
