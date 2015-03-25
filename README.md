@@ -11,19 +11,25 @@ npm install -g yo
 
 ### How to use:
 
-+ clone this repo
++ clone this repo to `myfolder`
 
 ```sh
-git clone git@github.com:maximusinc/save-page.git
+git clone git@github.com:maximusinc/save-page.git myfolder
 ```
 
-
 + save all page resources as `.HAR` file. It's very easy make with Google Dev Tools panel.
-+ put `.HAR` file into `save-page` folder.
++ put `.HAR` file into `myfolder` folder.
++ go to cloning folder
+```sh
+cd myfolder
+```
 + run in command line
+```sh
+npm install
+```
++ and save page with command
 
 ```sh
-cd save-page
 node save.js
 ```
 
